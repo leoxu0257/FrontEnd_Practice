@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>appendChild()</title>
+    <script src="domReady.js"></script>
+    <script>
+      myReady(function(){
+        //removeChild()
+        var myUl =document.getElementById('myUl');
+        console.log(myUl.childNodes.length);
+        var secondNode = myUl.removeChild(myUl.childNodes[1]); //removeChild have to have element in it, 
+                                                               //if wanna remove all use a loop
+        console.log(secondNode);
+        console.log(myUl.childNodes.length);
+
+        //removeNode() default false,  for  IE
+        var nodeRemove = myUl.removeNode(true);
+        console.log(nodeRemove.outerHTML);
+
+
+      });
+    </script>
+  </head>
+  <body>
+
+      <ul id="myUl">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+      </ul>
+    </div>
+  </body>
+</html>

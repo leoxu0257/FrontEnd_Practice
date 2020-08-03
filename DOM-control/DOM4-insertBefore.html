@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>appendChild()</title>
+    <script src="domReady.js"></script>
+    <script>
+      myReady(function(){
+        var myUl =document.getElementById('myUl');
+        var txt = document.createTextNode('4');
+        var txt2 = document.createTextNode('88');
+        var liNew = document.createElement('li');
+        var liNew2=document.createElement("li");
+        liNew.appendChild(txt);
+        liNew2.appendChild(txt2);
+        // var li2 = myUl.children.item(1);// the second li[1] in ul
+        // var returnValue = myUl.insertBefore(liNew,li2);
+        // console.log(returnValue.innerHTML);
+        myUl.insertBefore(liNew,null);
+        //myUl.insertBefore(liNew2,myUl.firstElementChild);
+        myUl.insertBefore(liNew2,myUl.lastElementChild);
+
+
+      });
+    </script>
+  </head>
+  <body>
+
+      <ul id="myUl">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+      </ul>
+    </div>
+  </body>
+</html>

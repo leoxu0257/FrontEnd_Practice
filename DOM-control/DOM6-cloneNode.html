@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>cloneNode()</title>
+    <script src="domReady.js"></script>
+    <script>
+      myReady(function(){
+        var myUl = document.getElementById("myUl");
+        var newNode = myUl.cloneNode();
+        var newNode2 = myUl.cloneNode(true);
+        console.log(newNode);   // only clone ul (not include li in it).
+        console.log(newNode2);  //the whole ul(include li inside).
+        document.body.appendChild(newNode2);// Add newNode2 to body.
+      });
+    </script>
+  </head>
+  <body>
+
+      <ul id="myUl">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+      </ul>
+    </div>
+  </body>
+</html>

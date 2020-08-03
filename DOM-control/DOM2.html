@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>create</title>
+    <script src="domReady.js"></script>
+    <script>
+        myReady(function(){
+            // var ul= document.getElementById("myList");
+            // var li = document.createElement("li");
+            // var txt=document.createTextNode("Item");
+            // li.appendChild(txt);
+            // ul.appendChild(li);
+            var comment= document.createComment("A Comment");
+            var ul=document.getElementById("myList");
+            var fragment = document.createDocumentFragment();
+            var li=null;
+            for(var i=0;i<3;i++){
+                li = document.createElement("li");
+                li.appendChild(document.createTextNode("Item"+(i+1)));
+                fragment.appendChild(li);
+            }
+            ul.appendChild(fragment);
+
+            comment.body.insertBefore(comment,document.body.firstChild);
+        });
+    </script>
+</head>
+<body>
+    <ul id="myList"></ul>
+</body>
+</html>

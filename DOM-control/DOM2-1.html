@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>html5shiv</title>
+    <style>
+        article{
+            font-size: 40px;
+            color: red;
+        }
+    </style>
+    <script>
+        (function(){
+            if(!
+            /*@cc_on!@*/
+            0) return;//检测是否是IE浏览器
+            var e = "abbr, article, aside, audio, canvas, datalist, details, dialog, eventsource, figure, footer, header, hgroup, mark, menu, meter, nav, output, progress, section, time, video".split(', ');
+        })();
+        var i=e.length;
+        while(i--){
+            document.createElement(e[i]);
+        }
+    </script>
+</head>
+<body>
+    <article>
+        You are my Sunshine.
+    </article>
+</body>
+</html>
