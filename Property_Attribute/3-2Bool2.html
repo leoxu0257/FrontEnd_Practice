@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="domReady.js"></script>
+    <script>
+        myReady(function(){
+            var city =document.getElementById('city');
+            // var options = city.options;
+            // options[2].selected=1; //纽约
+            
+
+            // readOnly
+            // var nationality =document.getElementById('nationality');
+            // nationality.readOnly = false;                            // have to be readOnly
+
+            // Disable
+            // var secondNationality =document.getElementById('second-nationality');
+            // secondNationality.disabled=false;                                        
+            
+            // multiple
+            city.multiple=false;            
+
+            // hidden
+            var div=document.getElementById('div');     
+            div.hidden=false;
+        });
+    </script>
+</head>
+<!-- //disabled 后端收不到  readOnly 后端可以收到 -->
+<body>
+    
+    Nationality：<input type="nationality" type="text" value="China" readonly="readonly"/><br>
+    Second Nationality：<input type="second-nationality" type="text" value="China" disabled="disabled"><br>
+    The cities you have been to:<br/>
+    <select name="city" id="city" multiple="multiple">
+        <option value="北京">北京</option>
+        <option value="香港" selected ="selected" >香港</option>
+        <option value="纽约">纽约</option>
+    </select>
+    <div id="div" hidden="hidden">html5新增属性 hidden</div>
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="domReady.js"></script>
+    <script>
+        myReady(function(){
+           var inputs= document.querySelectorAll("input");
+           inputs[0].checked=true;
+            
+        });
+    </script>
+</head>
+<body>
+    Gender:<br/>
+    <input type="radio" name = "gender" value="male" checked="checked">Male
+    <input type="radio" name = "gender" value="female" checked="checked">Female<br/>
+    The cities you have been to:<br/>
+    <input type="checkbox">北京
+    <input type="checkbox" checked="checked">香港
+    <input type="checkbox" checked>纽约
+</body>
+</html>

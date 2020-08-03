@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en"> <!-- for search engin by search language -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="domReady.js"></script>
+    <script>
+        myReady(function(){
+            var p = document.getElementById("sentence");
+            console.log(p.innerHTML);
+
+            var author =document.getElementById("author");
+            author.className='light';
+            
+        });
+    </script>
+</head>
+<body>
+    <p style="text-align: center" id="title" class="large">蝉</p>
+    <p style="text-align: center" id="author">虞世南</p>
+     <p style="text-align: center" id="sentence"><dbo dir="RTL">垂錗饮清露,</dbo></p> <!-- "bdo" string reverse -->
+    <p style="text-align: center" id="sentence">流响出疏桐。</p>
+    <p style="text-align: center" title="居高声自远，">居高声自远，</p> <!-- A bubble shows information in title -->
+    <p style="text-align: center" title="非是藉秋风。">非是藉秋风。</p>
+    <a href="http://blog.sina.com.cn/s/blog_4b064c140101jgc0.html">More Information</a>
+
+    <img src="x.jpg" alt="kid">
+
+    <input type="text"name="txt1" value="tab1" accesskey="a"/><!--  accesskey = shortcut (Alt+s/a)-->
+    <input type="text"name="txt2" value="tab2" accesskey="s"/>
+
+
+</body>
+</html>

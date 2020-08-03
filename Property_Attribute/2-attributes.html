@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="domReady.js"></script>
+    <script>
+        myReady(function(){
+            var div = document.querySelector('div');
+            // console.log(div.xxx);                       //null
+            // console.log(div.attributes.getNamedItem('xxx').nodeValue);// return "aaa", getNamedItem返回指定属性节点
+            // console.log(div.nodeName);
+            // console.log(div.attributes.getNamedItem('nodeName').nodeValue); //div 上没有显示
+            console.log(div.attributes.getNamedItem('id').nodeValue);//return div0
+            console.log(div.attributes['id'].nodeValue);             //return div0
+            div.attributes.removeNamedItem('yyy');// delete attributes
+
+            var attr =document.createAttribute('data-title');
+            attr.value='ddd';
+            div.attributes.setNamedItem(attr);
+
+
+        });
+    </script>
+</head>
+<body>
+    <div id="div0" url="http://www.baidu.com" xxx="aaa" yyy="bbb"></div>
+</body>
+</html>

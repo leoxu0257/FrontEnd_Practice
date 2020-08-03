@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="domReady.js"></script>
+    <script>
+        myReady(function(){
+            //var div =document.querySelector('div');    //not able to use at IE7
+            var div=document.getElementById('div0')
+            div.setAttribute('xxx','a');
+            div.setAttribute('data-event','click');
+
+            div.setAttribute('style','color:red');
+            div.setAttribute('onclick','alert(100)');
+        });
+    </script>
+</head>
+<body>
+    <div  id="div0" style="color: red;" onclick="alert(0)" url="http://www.baidu.com" xxx="aaa" Yyy="bbb">Click Me</div>
+</body>
+</html>

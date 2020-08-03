@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="domReady.js"></script>
+    <script>
+        myReady(function(){
+            //var div =document.querySelector('div');    //not able to use at IE7
+            var div=document.getElementById('div0')
+            div.innerHTML="属性操作方法";
+            console.log(div.innerHTML);
+
+            //getAttribute()
+            // console.log(div.getAttribute('url'));
+            // console.log(div.getAttribute('Yyy'));
+            // console.log(div.getAttribute('yyy'));
+            //special 
+            console.log(div.getAttribute('style'));
+            console.log(div.style);
+
+            console.log(div.getAttribute('onclick'));//不常使用
+            console.log(div.onclick);                //使用直接调用属性的方法
+        });
+    </script>
+</head>
+<body>
+    <div  id="div0" style="color: red;" onclick="albert(0)" url="http://www.baidu.com" xxx="aaa" Yyy="bbb"></div>
+</body>
+</html>

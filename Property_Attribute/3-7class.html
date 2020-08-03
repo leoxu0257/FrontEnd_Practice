@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en"> <!-- for search engin by search language -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="domReady.js"></script>
+    <script>
+        var CL={
+            addClass: function(ele,cls){
+                return ele.classList.add(cls);
+            },
+            removeClass: function(ele,cls){
+                return ele.classList.remove(cls);
+            },
+            hasClass: function(ele,cls){
+                return ele.classList.contains(cls);
+            },
+            toggleClass:function(ele,cls){
+                return ele.classList.toggle(cls);
+            }
+
+        }
+            
+        myReady(function(){
+            var body=document.body;
+            //console.log(CL.getClass(body));
+            console.log(CL.hasClass(body,'bbb'));
+            CL.addClass(body,'ccc');
+            //console.log(CL.getClass(body));
+            CL.removeClass(body, 'aaa')
+            //console.log(CL.getClass(body));
+            CL.toggleClass(body,'bbb');
+            //console.log(CL.getClass(body));
+
+            setTimeout(function(){
+                alert(document.body.classList.toString());
+            },2000);
+        });
+    </script>
+</head>
+<body class="aaa bbb aaa 111 222">TEST
+</body>
+</html>
