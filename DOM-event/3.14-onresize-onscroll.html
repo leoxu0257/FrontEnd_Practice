@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{height: 2000px;}
+        .box{width: 200px;height: 200px; background: red;overflow: auto;}
+    </style>
+</head>
+<body>
+    <div class="box" id="box">
+        <p>drag</p>
+        <p>drag</p>
+        <p>drag</p>
+        <p>drag</p>
+        <p>drag</p>
+        <p>drag</p>
+        <p>drag</p>
+        <p>drag</p>
+        <p>drag</p>
+
+    </div>
+    <script>
+        //<<<<<<<<<<<Mouse Event>>>>>>>>>>>>>>>>>>>>>>>>>>
+        var box=document.getElementById("box");
+        box.onmousedown=function(){
+            // Add a mouse down event
+            console.log("Mouse is down");
+        }
+        // Add a move event
+        box.onmousemove=function(){
+            console.log("Mouse moving");
+        }
+        // Add mouse up event
+        box.onmouseup=function(){
+            console.log("Mouse up");
+        }
+        //Add click event
+        box.onclick=function(){
+            console.log("Mouse click");
+        }
+        // resize, eg: Chrome size changed
+        window.onresize=function(){
+            console.log("Size Changed");
+        }
+        //drag scroll bar
+        window.onscroll=function(){
+            console.log("dragging scroll bar");
+        }
+        box.onscroll=function(){
+            console.log("dragging DIV scroll bar");
+        }
+    </script>
+</body>
+</html>

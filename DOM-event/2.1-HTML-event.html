@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .btn{
+            width:140px;
+            height:30px;
+            line-height:30px;
+            background:#00f;
+            color: #fff;
+            font-size: 14px;
+            text-align: center;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" value="jumpOut" onclick="alert('I\'m a button')">
+
+    <div id="btn" class="btn" onmousemove="mouseoverFn(this,'red')" onmouseout="mouseoutFn(this,'blue')">Start</div>        <!--  div#btn means <div id="btn"></div>-->
+    <div id="btn2" class="btn" onmousemove="mouseoverFn(this,'red')" onmouseout="mouseoutFn(this,'purple')">Start</div>
+    
+    <script>
+        function mouseoverFn(btn,bgColor){
+            btn.style.background=bgColor;
+        }
+        function mouseoutFn(btn,bgColor){
+            btn.style.background=bgColor;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            padding: 50px;
+        }
+        .left,.tip{
+            float: left;
+        }
+        .left{
+            margin-right: 10px;
+        }
+    .tip{display: none; font-size:14px;}
+    </style>
+    <script>
+        window.onload=function(){
+            //get text box and reminder box
+            var phone=document.getElementById("phone"),
+                tip=document.getElementById("tip");
+            // text box active event
+            phone.onfocus=function(){
+                //show tip
+                tip.style.display='block';
+            }
+            //onblur event
+            phone.onblur=function(){
+                //value, to get the value in textbox
+                var phoneValue=this.value;
+                //right = rightPic; Error = errorPic;
+                if (phoneValue.length==11 && isNaN(phoneValue)==false){//isNaN:check is not number
+                    tip.innerHTML='<img src ="img/right.png">';
+                    console.log("OK");
+                }else{
+                    tip.innerHTML='<img src ="img/error.png">';
+                    console.log("ERROR");
+                }
+                //tip.style.display='none';
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="box">
+        <div class="left">
+            <input type="text" id="phone" placeholder="Please enter phone number">
+        </div>
+        <div class="tip" id="tip">
+            please enter valid number
+        </div>
+    </div>
+</body>
+</html>

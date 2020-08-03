@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //load page
+        window.onload=init;
+        //initialization
+        function init(params) {
+            //colour menu
+            var menu=document.getElementById("menu");
+
+            //<<<<<<IMPORTANT>>>>>>>>>
+            //add onchange event into menu. eg: select/radio/checkbox
+            menu.onchange=function(){
+                var newColor= this.value;
+              //var newColor = menu.option[menu.selectedIndex].value
+                
+
+                //if(newColor=="")return;
+                if(newColor==""){//if newColor is NULL,set colour is white
+                    document.body.style.backgroundColor="white";
+                }else{
+                //set background color
+                document.body.style.backgroundColor=newColor;    
+                }
+
+
+
+            }
+            
+        }
+    </script>
+</head>
+<body>
+    <div class="box">
+        Please choose background colour
+        <select name="" id="menu">
+            <option value="">Please choose</option>
+            <option value="red">red</option>
+            <option value="black">black</option>
+            <option value="yellow">yellow</option>
+            <option value="pink">pink</option>
+            <option value="white">white</option>
+        </select>
+    </div>
+</body>
+</html>

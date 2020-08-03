@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .text span{font-weight: bold; color: red;}
+        em{font-style: normal;}
+    </style>
+</head>
+<body>
+    <div>
+        <p class="text">You can enter 
+            <span>
+                <em id="count">30</em>/30
+            </span>
+        </p>
+        <div class="input">
+            <textarea name="text" id="text" cols="70" rows="6"></textarea>
+        </div>
+    </div>
+    <script>
+        //use a element to keep event object in the function
+
+        // document.onkeydown=function(){
+        //     console.log(event.keyCode);
+        // }
+
+
+        // document.onkeyup=function(){
+        //     console.log(event.keyCode);
+        // }
+
+
+        // document.onkeypress=function(){
+        //     console.log(event.keyCode);
+        // }
+        var text=document.getElementById("text");
+        var total=30;
+        var count =document.getElementById("count");
+        var text=document.getElementById("text");
+        var total=30;
+        var count =document.getElementById("count");
+        document.onkeyup=function(){
+            var len = text.value.length;
+            console.log(len);
+            var allow=total-len;
+            count.innerHTML=allow;
+        }
+    </script>
+</body>
+</html>
