@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="mybtn">click me</button>
+    <script>
+        var EventUtil={
+            addHandler:function(element,type,handler){
+                if(element.addEventListener){
+                    element.addEventListener(type,handler,false);
+                }else if(element.attachEvent){
+                    element.attachEvent("on"+type,handler);
+                }else{
+                    element["on"+type]=null
+                }
+            },
+            removeHandler:function(element,type,handler){
+                if(element.removeEventListener){
+                    element.removeEventListener(type,handler,false);
+                }else if(element.detachEvent){
+                    element.detachEvent("on"+type,handler);
+                }else{
+                    element["on"+type]=null
+                }
+            },
+            getTarget: function(event){
+                return event.target||event.srcElement;
+            },
+            
+            preventDefault: function(event){
+                if(event.preventDefault){
+                    event.preventDefault();
+                }else{
+                    event.returnValue=false;
+                }
+            },
+            stopPropagation:function(event){
+                if(event.stopPropagation){
+                    event.stopPropagation();
+                }else{
+                    event.cancelBubble=true;
+                }
+            }
+        }
+
+        var mybtn= document.getElementById("mybtn");  
+        //手指触摸屏幕触发 (finger touch screen)
+        EventUtil.addHandler(mybtn,"touchstart",function(event){
+            console.log(11111);
+            console.log("当前触摸屏幕的触摸点数组(eg:4 fingers on screen)："+event.touches)
+			console.log("数组中只包含引起事件的触摸点信息(eg: 2 fingers moved)："+event.changedTouches)
+			console.log("只包含放在元素上的触摸信息(eg: one finger move to the button)："+event.targetTouches)
+        });
+        
+        //手指在屏幕上滑动 (finger move on screen)
+        // EventUtil.addHandler(window,"touchmove",function(event){
+        //     console.log(11111);
+        // });
+
+
+        // //手指停止触摸屏幕触发 (finger move away from screen)
+        // EventUtil.addHandler(window,"touchend",function(event){
+        //     console.log(22222);
+        // })
+
+
+    </script>
+</body>
+</html>

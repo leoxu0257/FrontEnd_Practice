@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eventType</title>
+    <style>
+        body{
+            height: 2000px;
+        }
+        input{
+            width: 300px;
+            height: 50px;
+        }
+        div{
+            padding: 20px 0;
+            background:red;
+        }
+        #myDiv{
+            width: 500px;
+            height: 500px;
+            background: lightgreen;
+        }
+    </style>
+    
+</head>
+<body>
+    <input id="input" type="text" name="input">
+    <div>
+        <button id="mybtn">click me</button>
+    </div>
+    <div id="myDiv"></div>
+    <script>
+        var EventUtil={
+            addHandler:function(element,type,handler){
+                if(element.addEventListener){
+                    element.addEventListener(type,handler,false);
+                }else if(element.attachEvent){
+                    element.attachEvent("on"+type,handler);
+                }else{
+                    element["on"+type]=null
+                }
+            },
+            removeHandler:function(element,type,handler){
+                if(element.removeEventListener){
+                    element.removeEventListener(type,handler,false);
+                }else if(element.detachEvent){
+                    element.detachEvent("on"+type,handler);
+                }else{
+                    element["on"+type]=null
+                }
+            },
+            getTarget: function(event){
+                return event.target||event.srcElement;
+            },
+            
+            preventDefault: function(event){
+                if(event.preventDefault){
+                    event.preventDefault();
+                }else{
+                    event.returnValue=false;
+                }
+            },
+            stopPropagation:function(event){
+                if(event.stopPropagation){
+                    event.stopPropagation();
+                }else{
+                    event.cancelBubble=true;
+                }
+            }
+        }
+        //(1)UI Event
+        //when page fully load
+        // EventUtil.addHandler(window,"load", function(e){
+        //     alert("Loaded!");
+        // });
+
+        //(2)Img Event loaded
+        // var image=document.createElement("img");
+        // EventUtil.addHandler(image,"load",function(e){
+        //     alert("photo loaded")
+        // })
+        // image.src="1.png";
+
+        // //(3)Image preLoad
+        // var image = new Image();
+        // EventUtil.addHandler(Image,"load",function(e){
+        //     alert("Image Loaded");
+        // });
+        // image.src="1.png";
+
+        // //(4)JS动态加载完毕
+        // var script=document.createElement("script");
+        // EventUtil.addHandler(script,"load",function(e){
+        //     alert("js Loaded");
+        // });
+        // script.src="jquery.js";
+        // document.body.appendChild(script);
+        // // 等于<script src="jquery.js">
+
+        // //(5)CSS动态加载完毕
+        // var link = document.createElement("link");
+        // link.type="text/css";
+        // link.rel="stylesheet";
+        // EventUtil.addHandler(link,"load",function(event){
+        //     alert("css loaded");
+        // });
+        // link.href="example.css";
+        // document.getElementsByTagName("head")[0].appendChild(link);
+        // //  等于<link rel="stylesheet" type="text/css" href="example.css">
+
+        // //(6)unload Event
+        //     EventUtil.addHandler(window,"load",function(e){
+        //         alert("unloaded");
+        //     });
+
+        // //(7) resize
+        // EventUtil.addHandler(window,"resize",function(e){
+        //     alert("resize");
+        // });
+
+        // //(8) scroll
+        // EventUtil.addHandler(window,"scroll",function(e){
+        //     alert("scrolled");
+        // });
+
+        // //(9.1) blur
+        //     var input=document.getElementById("input");
+        //     EventUtil.addHandler(input,"blur",function(e){
+        //         alert("blurred");
+        //     });
+        // //(9.2) focus 不支持冒泡
+         var input=document.getElementById("input");
+        //     EventUtil.addHandler(input,"focus",function(e){
+        //         alert("focus");
+        //     });
+        // //(9.2) focusin 支持冒泡
+            // EventUtil.addHandler(input,"focusin",function(e){
+            //     console.log("focusin");
+            // });     
+            // //(9.3) Mouse Click          
+            // EventUtil.addHandler(mybtn,"click",function(e){
+            //     alert("click")
+            // });
+
+            //(9.4) Mouse Double Click
+            // EventUtil.addHandler(mybtn,"dblclick",function(e){
+            //     alert("dblclick");
+            // });
+            // //(9.5)mouse down
+            EventUtil.addHandler(mybtn,"mousedown",function(event){
+                console.log("mousedown");
+                console.log(event.button);
+                //0鼠标左键
+                //1鼠标中键
+                //2鼠标右键
+
+                //IE8   event.button=0 没按
+                //      event.button=1 按下主鼠标按钮
+                //      event.button=2 按下次鼠标按钮
+                //      event.button=3 同时按下 主鼠标按钮 和次鼠标按钮
+                //      event.button=4 中间
+            });
+            // //(9.6)mouse up
+            // EventUtil.addHandler(mybtn,"mouseup",function(e){
+            //     alert("mouseup");
+            // });
+            //离开目标元素的时候执行
+			//			EventUtil.addHandler(myBtn, "mouseout", function(event){
+			//				console.log("mouseout")
+			//			})
+			//			//进入目标元素的时候执行
+			//			EventUtil.addHandler(myBtn, "mouseover", function(event){
+			//				console.log("mouseover")
+			//			})
+			//			//只能进入目标元素时候才去触发
+			//			EventUtil.addHandler(myBtn, "mouseenter", function(event){
+			//				console.log("mouseenter")
+			//			})
+			//			//只能离开目标元素时候才去触发
+			//			EventUtil.addHandler(myBtn, "mouseleave", function(event){
+			//				console.log("mouseleave ")
+			//			}) 
+                        // var div = document.getElementById("div");
+						// //离开目标元素或者其子元素的时候执行
+						// EventUtil.addHandler(div, "mouseout", function(e){
+						// 	console.log("mouseout");
+						// });
+						// //进入目标元素或者其子元素的时候执行
+						// EventUtil.addHandler(div, "mouseover", function(e){
+						// 	console.log("mouseover");
+						// });
+			//			//只能进入目标元素时候才去触发
+			//			EventUtil.addHandler(div, "mouseenter", function(event){
+			//				console.log("mouseenter")
+			//			})
+			//			//只能离开目标元素时候才去触发
+			//			EventUtil.addHandler(div, "mouseleave", function(event){
+			//				console.log("mouseleave ")
+			//			}) 
+
+            //(10) Keyboard Event
+            // var div= document.getElementById("myDiv");
+            // EventUtil.addHandler(div,"click",function(event){
+            //     var keys= new Array();
+            //     if(event.shiftKey){
+            //         keys.push("shift");
+            //     }
+            //     if(event.ctrlKey){
+            //         keys.push("ctrl");
+            //     }
+            //     if(event.altKey){
+            //         keys.push("alt");
+            //     }
+            //     if(event.metaKey){
+            //         keys.push("meta");
+            //     }
+            //     console.log("keys:"+keys.join(","));
+            // })
+    </script>
+    
+</body>
+</html>

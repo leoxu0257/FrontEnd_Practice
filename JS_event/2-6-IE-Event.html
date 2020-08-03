@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IE-Event</title>
+</head>
+<body>
+    <button id="myBtn">click</button>
+    <script>
+
+        var btn = document.getElementById("myBtn");
+			var clickMe = function() {
+				alert("Clicked");
+			}
+            btn.attachEvent("onclick", clickMe);
+            btn.detachEvent("onclick",clickMe);
+
+            //this point to window
+            btn.attachEvent("onclick",function(){
+                alert(this===window);
+            })
+    </script>
+</body>
+</html>

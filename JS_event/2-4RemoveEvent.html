@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<!-- Way2 Button -->
+    <button onclick="alertWindow()">Click Me</button>
+    
+
+    <button id="btn">DOM0_Add Event</button>
+    <button id="btn2">DOM2_Add Event2</button>
+    <script type="text/javascript">
+
+
+// Way1 Event Handler
+        function alertWindow(){
+            alert("Button Clicked")
+        }
+// Way2: DOM0--Add Event
+        var Dom0 =function(){   //Event Handler
+            alert("DOM0---Add Event");
+        }
+        var btn =document.getElementById("btn");
+        btn.onclick=Dom0;
+        // Disadvantage: ONLY 1 Event, latest Event is going to rewrite Old Event.
+
+//Way3: Best Way      
+        var DOM2_Add=function(){
+            alert("DOM2_Add Event2");
+        }
+        var btn2 =document.getElementById("btn2");
+        btn2.addEventListener('click',DOM2_Add,false);
+        
+        btn2.addEventListener('click',function(){
+            alert("DOM23456_Add Event2");
+        },false);
+
+//RemoveEvent
+        btn2.removeEventListener('click',DOM2_Add);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="myText">
+    <ul id="myList">
+        <li id="li">Item1</li>
+        <li id="li1">Item2</li>
+        <li id="li2">Item3</li>
+    </ul>
+    <script>
+        var EventUtil={
+            addHandler:function(element,type,handler){
+                if(element.addEventListener){
+                    element.addEventListener(type,handler,false);
+                }else if(element.attachEvent){
+                    element.attachEvent("on"+type,handler);
+                }else{
+                    element["on"+type]=null
+                }
+            },
+
+            getCharCode: function(event){
+                if(typeof event.charCode =="number"){
+                    return event.charCode;
+                }else{
+                    return event.keyCode;
+                }
+            },
+            removeHandler:function(element,type,handler){
+                if(element.removeEventListener){
+                    element.removeEventListener(type,handler,false);
+                }else if(element.detachEvent){
+                    element.detachEvent("on"+type,handler);
+                }else{
+                    element["on"+type]=null
+                }
+            },
+            getTarget: function(event){
+                return event.target||event.srcElement;
+            },
+            
+            preventDefault: function(event){
+                if(event.preventDefault){
+                    event.preventDefault();
+                }else{
+                    event.returnValue=false;
+                }
+            },
+            stopPropagation:function(event){
+                if(event.stopPropagation){
+                    event.stopPropagation();
+                }else{
+                    event.cancelBubble=true;
+                }
+            }
+        }
+        
+        // //(1)keydown, any key
+        // var myText=document.getElementById("myText");
+        // EventUtil.addHandler(myText,"keydown",function(event){
+        //     console.log(event.keyCode);
+        // });
+
+
+        // //(2)keyup, any key
+        // var myText=document.getElementById("myText");
+        // EventUtil.addHandler(myText,"keyup",function(event){
+        //     console.log(event.keyCode);
+        // });
+
+        // (3)ASCII code, 字符键触发
+        // var myText=document.getElementById("myText");
+        // EventUtil.addHandler(myText,"keypress",function(event){
+        //     console.log("event.keyCode: "+event.keyCode);//不稳定
+        //     console.log("event.charCode: "+event.charCode);
+        // });
+
+        //(4) data event
+            // EventUtil.addHandler(myText, "textInput", function(event){
+            //     console.log(event.data);
+            // })
+
+        //(5)DOMNodeRemoved event, if Delete any element in "document"
+
+        // EventUtil.addHandler(document,   //if Delete any element in "document",document can be change
+        //                                 "DOMNodeRemoved", function(event){
+        //     console.log("If anything delete");
+        // })
+        // document.body.removeChild(myText);
+
+
+        //(6)
+        // EventUtil.addHandler(document,"DOMSubtreeModified", function(event){
+        //     console.log("If any change");
+        // })
+
+
+        //(7)DOMNodeRemovedFromDocument Event happen Before delete
+        // EventUtil.addHandler(myList,"DOMNodeRemovedFromDocument", function(event){
+        //     console.log("Before delete");
+        // })
+        // document.body.removeChild(myList);
+
+        //(8)
+        // EventUtil.addHandler(document, "DOMNodeInsertedIntoDocument", function(event) {
+		// 	console.log(111111);
+        // })
+        
+        //myList.appendChild(item);
+        
+        //(9)在DOM树之后就会触发,不理会图像.javascript,css或其他资源是否已经下载
+        //DOMContentLoaded
+        EventUtil.addHandler(document,"DOMContentLoaded", function(event){
+            console.log(11111);
+        })
+        
+    </script>
+</body>
+</html> 

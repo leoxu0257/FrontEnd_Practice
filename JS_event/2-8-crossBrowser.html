@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>crossBrowser</title>
+</head>
+<body>
+    <button id="myBtn">Click Me</button>
+    <script>
+        // addEventListener attachEvent
+        var EventUtil={
+            addHandler:function(element,type,handler){
+                if(element.addEventListener){
+                    element.addEventListener(type,handler,false);
+                }else if(element.attachEvent){
+                    element.attachEvent("on"+type,handler);
+                }else{
+                    element["on"+type]=null
+                }
+            },
+            removeHandler:function(element,type,handler){
+                if(element.removeEventListener){
+                    element.removeEventListener(type,handler,false);
+                }else if(element.detachEvent){
+                    element.detachEvent("on"+type,handler);
+                }else{
+                    element["on"+type]=null
+                }
+            }
+        }
+        var btn=document.getElementById("myBtn");
+        var handler=function(){
+            alert("clicked");
+        }
+        EventUtil.addHandler(btn,"click",handler);
+        EventUtil.removeHandler(btn,"click",handler);
+    </script>
+</body>
+</html>

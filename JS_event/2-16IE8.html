@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <div id="parent">
+        <div id="child">click me</div>
+    </div>
+    <button id="target">target</button>
+</head>
+<body>
+    <button id="myBtn">Click Me</button>
+    <a href="https://www.youtube.com/" id="a">Youtube</a>
+    <script>
+        //attachEvent
+        var myBtn = document.getElementById("myBtn");
+			myBtn.attachEvent("onclick",function(event){
+				//event.type事件类型
+				alert(event.type)
+                //event.returnValue=false; 阻止默认行为preventDefault
+			})
+
+        var a =document.getElementById("a");
+        a.attachEvent("onclick",function(event){
+            event.returnValue=false;
+        })
+
+        //event.cancelBubble=true; 取消冒泡行为
+        var parent  =document.getElementById("parent");
+        parent.attachEvent("onclick",function(event){
+            alert("parent 被触发了");
+        });
+        var child=document.getElementById("child");
+        child.attachEvent("onclick",function(event){
+            event.cancelBubble=true;
+            alert("child 被触发了");
+        });
+
+        // scrElement = target
+        var target= document.getElementById("target");
+        target.attachEvent("onclick",function(event){
+            console.log(event.srcElement);
+        })
+
+    </script>
+</body>
+</html>

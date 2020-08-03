@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        #height{
+            height: 2000px;
+            background: lightgreen;
+        }
+    </style>
+</head>
+<body>
+    <button id="mybtn">Click</button>
+    <div id="parent">
+        <div id="child">Click Me</div>
+    </div>
+    <a href="https://www.youtube.com/" id="a">YOUTUBE</a>
+    <div id="height"></div>
+    <script>
+        // //event.type(event method)
+        // var mybtn=document.getElementById("mybtn");
+        // var eventFunc=function(event){
+        //     if(event.type=="click"){
+        //         alert("click event");
+        //     }else if(event.type=="mouseout"){
+        //         alert("click mouseout");
+        //     }
+        // }
+        // mybtn.addEventListener("click",eventFunc);
+        // mybtn.addEventListener("mouseout",eventFunc);
+
+        // //target and currentTarget
+        // var parent=document.getElementById("parent");
+        // parent.addEventListener("click",function(event){
+        //     console.log(event.target);
+        //     console.log(event.currentTarget);
+        // });
+
+        //event.preventDefault(stop default event)
+        var a=document.getElementById("a");
+        a.addEventListener("click",function(event){
+            event.preventDefault();//阻止跳转默认行为
+            alert(11);
+        });
+        //event.stopPropagation()  //阻止事件冒泡和事件捕获
+        var parent=document.getElementById("parent");
+        parent.addEventListener("click",function(event){
+            alert("parent");
+        });
+        child.addEventListener("click",function(event){
+            alert("child");
+            event.stopPropagation();
+        });
+
+        //clientY   (Distance browser top to mouse),
+        //pageY     (Distance browser top to mouse, include Browser scroll distance 滚动条下拉部分 以page顶为准),
+        //screenY   (Distance screen top to mouse, no matter how small is the browser, only depend on the screen)
+        var height=document.getElementById("height");
+        height.addEventListener("click",function(){
+            alert("clientY:"+event.clientY+"; pageY:"+event.pageY+"; screenY:"+event.screenY);
+        });
+    </script>
+</body>
+</html>
