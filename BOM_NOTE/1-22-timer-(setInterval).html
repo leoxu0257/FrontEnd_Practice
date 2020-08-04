@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //超时调用
+        // var intervalID=setInterval(function(){
+        //     console.log("hello");
+        // },2000)                            //Every 2s print "hello"
+        //                                    //stop after 10s
+        // setTimeout(function(){
+        //     clearInterval(intervalID);
+        // },10000)
+
+        //反复调用  timer(1-10)
+        var num=1, max=10, timer=null;
+        // timer=setInterval(function(){
+        //     console.log(num);
+        //     num++;
+        //     if(num>max){
+        //         clearInterval(timer);
+        //     }
+        // },1000)
+
+        //超时调用 timer(1-10)
+
+        function inCreamentNum(){
+            console.log(num);
+            num++;
+            if(num<=max){
+                setTimeout(inCreamentNum,1000);
+            }else{
+                clearTimeout(timer);
+                
+            }
+        }
+        timer=setTimeout(inCreamentNum,1000);
+    </script>
+</body>
+</html>

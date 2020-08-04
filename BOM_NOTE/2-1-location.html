@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1{
+            height: 600px; background-color: aquamarine;
+        }
+        .box2{
+            height: 500px;background-color: brown;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1" id="top"></div>
+    <div class="box2"></div>
+    <input type="button" value="Back to top" id="btn">
+    <script>
+        //(1)Back to top button
+        console.log(location.href);// return full URL address
+        console.log(location.hash);
+        var btn=document.getElementById("btn");
+        btn.onclick=function(){
+            location.hash="#top";
+        }
+        //(2)location.host -----host number
+        console.log(location.host);
+        console.log(location.hostname);
+        console.log(location.pathname);
+        console.log(location.port);
+        
+        
+    </script>
+</body>
+</html>

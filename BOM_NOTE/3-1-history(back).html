@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>history</title>
+</head>
+<body>
+    <p>This is 3-1.html</p>
+    <p>
+        <a href="3-4-history-(forward).html">3-4</a>
+    </p>
+    <p>
+        <input type="button" value="go back" id="btnBack">
+    </p>
+    <p>
+        <input type="button" value="Forward*2" id=btnForward2>
+    </p>
+    <p>
+        <input type="button" value="Forward" id=btnForward>
+    </p>
+    <script>
+        var btnBack = document.getElementById("btnBack");
+// Go Back
+btnBack.onclick=function(){
+            //history.back();
+            history.go(-2);// go back *2
+        }
+//Go Forward
+        btnForward=document.getElementById("btnForward");
+        btnForward.onclick=function(){
+            //history.forward();
+            history.go(2);// go forward *1
+        }
+
+        btnForward2=document.getElementById("btnForward2");
+        btnForward2.onclick=function(){
+            //history.forward();
+            history.go(2);// go forward *2
+        }
+    </script>
+    
+</body>
+</html>

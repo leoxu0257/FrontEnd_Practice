@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="2-8Search.html">3-1</a>
+    <script>
+        setTimeout(function(){
+            //(1) Will be a history record
+            // window.location='2-1-location.html';
+            //location.href='2-1-location.html';
+            //(2) Will NOT record history 
+            //location.replace('2-1-location.html')
+            
+        },1000)
+            //(3) location.reload() ---- may reload from MEMORY
+            //location.reload(true)---reload from SERVER 
+            document.getElementById("reload").onclick=function(){
+                location.reload(true);
+            }
+    </script>
+</body>
+</html>

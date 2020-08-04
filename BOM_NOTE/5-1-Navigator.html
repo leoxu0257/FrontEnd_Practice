@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // var explorer =navigator.userAgent;
+        // alert(explorer);                    //Browner information
+
+        function getBrowser(){
+            var explorer =navigator.userAgent.toLowerCase(),browser;
+            if(explorer.indexOf("msie")>-1){
+                browser="IE8";
+            }else if(explorer.indexOf("chrome")>-1){
+                browser="chrome";
+            }else if(explorer.indexOf("opera")>-1){
+                browser="opera";
+            }else if(explorer.indexOf("safari")>-1){
+                browser="safari";
+            }else if(explorer.indexOf("windows nt 10.0")>-1){
+                browser="IE10";
+            }
+            return browser;
+        }
+        var explorer=getBrowser();
+        //console.log("You are using "+explorer);
+        alert("You are using "+explorer);
+    </script>
+</body>
+</html>
