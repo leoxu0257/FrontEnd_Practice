@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //-----------1------------
+        // var obj ={}; obj.a=100;
+        // var arr =[]; arr.a=100;
+        // function fn(){}
+        // fn.a=100;
+
+        // console.log(obj.__proto__);
+        // console.log(arr.__proto__);
+        // console.log(fn.__proto__);
+
+        // console.log(fn.prototype);
+
+        // console.log(obj.__proto__=== Object.prototype);
+        
+         //-----------2------------
+        function Foo(name,age){
+            this.name=name;
+            this.age=age;
+        }
+        Foo.prototype.alertName=function(){
+            // alert(this.name)
+        }
+        Foo.prototype.alertAge=function(){
+            // alert(this.age)
+        }
+
+        var f=new Foo('Anna',123);
+        f.printName=function(){
+            console.log(this.name);
+        }
+        f.printName();
+        f.alertAge();
+        f.alertName();
+        f.toString();// f -> f.__proto__ === Foo.prototype
+                     // ->  Object(Foo.prototype).__proto__ === Object.prototype
+                     // ->  null
+
+         //-----------3------------
+        
+        var item;
+        for (item in f){
+            if (f.hasOwnProperty(item)) {
+                console.log(item);
+                
+            }
+        }
+
+        //-----------如何判断一个变量是数组类型------------
+        var arr=[];
+        arr instanceof Array;
+        // arr-> arr.__proto__ === Array.prototype
+
+        //-----------写一个原型链继承的例子------------
+
+        function Elem(id) {
+            this.elem=document.getElementById(id);
+        }
+
+        Elem.prototype.html=function(val){
+            var elem=this.elem;
+            if (val) {
+                elem.innerHTML = val
+                return this
+            }else{
+                return elem.innerHTML
+            }
+        }
+
+        Elem.prototype.on=function(type,fn){
+            var elem=this.elem;
+            elem.addEventListener(type,fn);
+            return this;
+        }
+
+        var div1=new Elem("container navigation");
+       div1.html('a');
+        
+        // div1.html('<p>good day</p>').on('click',function(){
+        //     alert('clicked');
+        // }.html('<p> javascript</p>'))
+        
+
+        // function Animal() {
+        //     this.eat=function(){
+        //         console.log("Animal eat");
+        //     }
+        // }
+        // function Dog() {
+        //     this.bark=function(){
+        //         console.log("Dog Bark");
+        //     }
+        // }
+        // Dog.prototype=new Animal();
+        // var hashiqi= new Dog();
+        
+        // for (var i in hashiqi) {
+        //     // if (hashiqi.hasOwnProperty(i)) {
+        //     //     console.log(i);
+        //     // }
+        //     console.log(i);
+        // }
+
+        //-----------描述 new 一个对象的过程------------
+        function student(name,age) {
+            this.name=name;
+            this.age=age;
+            this.class="class-1";
+            return this;
+        }
+
+        var student1= new student("Leo",22);
+        console.log(student1);
+        //1. 创建一个新对象 2. this 指向这个对象 3. 执行代码赋值this 4. return this
+
+        // -----------zepto(或其他框架)中如何使用原型链------------
+        
+//
+    </script>
+
+    <div class="container navigation">12345678</div>
+</body>
+</html>
