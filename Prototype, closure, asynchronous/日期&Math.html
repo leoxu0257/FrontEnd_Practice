@@ -65,6 +65,19 @@
             }
         });
         console.log(arr2);  
+       
+//Object API
+        var obj={
+            x:100,
+            y:200,
+            Z:300
+        }
+        var key
+        for (const key in obj) {
+            if (obj.hasOwnProperty(key)) {
+                console.log(key,obj[key]);    
+            }
+        }
     </script>
 </body>
 </html>
