@@ -32,16 +32,39 @@
         });
         console.log(result);
 
+//some 一个走 true       
+        var arr=[1,2,3];
+        var result=arr.some((item,index)=>{
+            if (item<4) {
+                return true;
+            }
+        });
+        console.log(result);
+
 //sort
         var arr=[1,2,3,6,2,12];
-        var arr2=arr.some((item,index)=>{
+        var arr2=arr.sort((a,b)=>{
             //小到大
             return a-b
             //大到小
             return b-a
-            
         });
         console.log(arr2);
+
+//map
+        var arr=[1,2,3,6,2,12];
+        var arr2=arr.map((item,index)=>{
+            return '<b>'+item+'<b>'
+        });
+        console.log(arr2);  // ["<b>1<b>", "<b>2<b>", "<b>3<b>", "<b>6<b>", "<b>2<b>", "<b>12<b>"]
+//filter
+        var arr=[1,2,3,6,2,12];
+        var arr2=arr.filter((item,index)=>{
+            if (item>=2) {
+                return true;
+            }
+        });
+        console.log(arr2);  
     </script>
 </body>
 </html>
