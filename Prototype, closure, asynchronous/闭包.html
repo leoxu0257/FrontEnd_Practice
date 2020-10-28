@@ -150,6 +150,22 @@
     firstLoad(20);
     //isFirstLoad函数以外，不可能更改_list的值
         
+// a Hand-write forEach() function       
+function forEach(obj,fn) {
+    var key;
+    if (obj instanceof Array) {
+        obj.forEach(arr,function (index,item) {
+            fn(key,item)
+        })
+    }else{
+        for (const key in obj) {
+            if (obj.hasOwnProperty(key)) {
+                fn(key,obj[key]);
+            }
+        }
+    }
+}
+        
 var arr=[1,2,3];
 forEach(arr,function (index, item) {
     console.log(index,item);
